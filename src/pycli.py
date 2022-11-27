@@ -28,14 +28,14 @@ def execute_command(command_string: str, line: str) -> str:
 
 
 def main(argv: list) -> None:
-    command_string = argv[0]
+    command_string = argv[1]
 
     command_with_imports = add_imports(command_string)
-    if len(argv) == 1:
+    if len(argv) == 2:
         for line in sys.stdin:
             print(execute_command(command_with_imports, line))
     else:
-        with open(argv[1]) as file_handler:
+        with open(argv[2]) as file_handler:
             for line in file_handler.readlines():
                 print(execute_command(command_string, line))
 
